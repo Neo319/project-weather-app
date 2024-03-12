@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _apiRequestTracker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apiRequestTracker */ \"./src/apiRequestTracker.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\nconsole.log(\"index.js ready!\")\n\n\n//test: retrieving + inspecting weather API data\n;(0,_apiRequestTracker__WEBPACK_IMPORTED_MODULE_0__[\"default\"])()\n\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _apiRequestTracker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apiRequestTracker */ \"./src/apiRequestTracker.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\nconsole.log(\"index.js ready!\")\n\n\n//test: retrieving + inspecting weather API data\n;(0,_apiRequestTracker__WEBPACK_IMPORTED_MODULE_0__[\"default\"])()\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
