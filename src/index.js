@@ -1,6 +1,11 @@
-import dropdown from "./dropdown"
-
+import apiRequestTracker from "./apiRequestTracker"
 import "./style.css"
 
 console.log("index.js ready!")
-dropdown()
+
+
+//test: retrieving + inspecting weather API data
+apiRequestTracker()
+
+
+
