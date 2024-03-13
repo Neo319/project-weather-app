@@ -47,8 +47,6 @@ async function apiRequestMaker (search = "tokyo") {
             snowChance: forecastData.forecast.forecastday[0].day.daily_chance_of_snow,
         }
     }
-
-    console.log(returnData)
     return {returnData}
 }
 
