@@ -110,13 +110,13 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
-/***/ "./src/apiRequestTracker.js":
-/*!**********************************!*\
-  !*** ./src/apiRequestTracker.js ***!
-  \**********************************/
+/***/ "./src/apiRequestMaker.js":
+/*!********************************!*\
+  !*** ./src/apiRequestMaker.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// module dedicated to making and processing weatherAPI requests made in the app.\n\nconst apiRequestTracker = () => {\n    let apiRequestData \n\n    fetch('https://api.weatherapi.com/v1/current.json?key=1852810708a34201a0c141512241103&q=osaka', {mode: 'cors'})\n    .then(function (response) { //once the api request is resolved, convert from JSON\n        return response.json()\n    })\n    .then(function (jsonData) { //log the data once the JSON conversion is resolved\n        console.log(jsonData)\n        console.log(jsonData.current)\n        apiRequestData = jsonData\n    })\n    .catch(function (error) { // issue occurs in any part of the promise chain\n        console.log('error 1')\n        console.log(error)\n    })\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (apiRequestTracker);\n\n//# sourceURL=webpack:///./src/apiRequestTracker.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// module for making and processing weatherAPI requests made in the app.\n\nasync function apiRequestMaker (search = \"tokyo\") {\n    let currentData\n    let forecastData\n    const searchQuery = search.toString()\n\n\n    try {\n        // get current data\n        const currentDataResponse = await fetch(`https://api.weatherapi.com/v1/current.json?key=1852810708a34201a0c141512241103&q=${searchQuery}`, {mode: 'cors'})\n        currentData = await currentDataResponse.json()\n\n        //get forecast data\n        const forecastDataResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=1852810708a34201a0c141512241103&q=${searchQuery}`, {mode: 'cors'})\n        forecastData = await forecastDataResponse.json()\n    }\n    catch (error) {\n        console.log('Oops -- error 1: ' + error)\n        return error\n    }\n        \n\n    console.log({currentData, forecastData})\n    return {currentData, forecastData}\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (apiRequestMaker);\n\n//# sourceURL=webpack:///./src/apiRequestMaker.js?");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _apiRequestTracker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apiRequestTracker */ \"./src/apiRequestTracker.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\nconsole.log(\"index.js ready!\")\n\n\n//test: retrieving + inspecting weather API data\n;(0,_apiRequestTracker__WEBPACK_IMPORTED_MODULE_0__[\"default\"])()\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _apiRequestMaker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apiRequestMaker */ \"./src/apiRequestMaker.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\nconsole.log(\"index.js ready!\")\n\n\n//test: retrieving + inspecting weather API data\nasync function makeweatherAPIrequest() {\n    let myData \n    await (0,_apiRequestMaker__WEBPACK_IMPORTED_MODULE_0__[\"default\"])()\n    \n\n    console.log(myData)\n}\n\nmakeweatherAPIrequest()\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
