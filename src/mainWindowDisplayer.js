@@ -16,24 +16,28 @@ export default function mainWindowDisplayer (myWeatherData) {
 
     // display the name, region, & country
     const locationHeader = document.createElement('h3')
-    locationHeader.id = 'locationHeader'
     const regionHeader = document.createElement('span')
-    regionHeader.id = 'regionHeader'
     const countryHeader = document.createElement('span')
-    countryHeader.id = 'countryHeader'
 
     locationHeader.textContent = data.name
     regionHeader.textContent = data.region
     countryHeader.textContent = data.country
 
-    console.log(...[locationHeader, regionHeader, countryHeader])
-
-
     geoData.append(...[locationHeader, regionHeader, countryHeader])
 
 
+    const currentData = document.createElement('div')
+    
+    //display the current conditions, a relevant icon, temperature (Celsius for now) 
+    
+    currentData.id = 'currentData'
+    const conditionIcon = new Image()
+    const conditionText = document.createElement('span')
 
+    conditionIcon.src = `https:${data.conditionIcon}`
+    conditionText.textContent = data.condition
 
-
+    currentData.append(...[conditionIcon, conditionText])
+    mainWindow.appendChild(currentData)
 
 }
