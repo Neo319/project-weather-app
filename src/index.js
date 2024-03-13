@@ -1,7 +1,6 @@
 import apiRequestMaker from "./apiRequestMaker"
+import mainWindowDisplayer from "./mainWindowDisplayer"
 import "./style.css"
-
-console.log("index.js ready!")
 
 async function makeWeatherAPIRequest() {
     let myData = await apiRequestMaker('london') //test a request to London
@@ -10,7 +9,10 @@ async function makeWeatherAPIRequest() {
 
 //test: retrieving + inspecting weather API data
 makeWeatherAPIRequest().then((myWeatherData) => {
-    console.log(myWeatherData) // weather data retrieved successfully 
+
+    //displaying API data
+    mainWindowDisplayer(myWeatherData)
 })
+
 
 

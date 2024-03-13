@@ -19,8 +19,6 @@ async function apiRequestMaker (search = "tokyo") {
         throw error
     }
         
-
-    console.log({currentData, forecastData})
     return {currentData, forecastData}
 }
 
