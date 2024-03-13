@@ -3,15 +3,14 @@ import "./style.css"
 
 console.log("index.js ready!")
 
-
-//test: retrieving + inspecting weather API data
-async function makeweatherAPIrequest() {
-    let myData 
-    await apiRequestMaker()
-    
-
-    console.log(myData)
+async function makeWeatherAPIRequest() {
+    let myData = await apiRequestMaker('london') //test a request to London
+    return myData
 }
 
-makeweatherAPIrequest()
+//test: retrieving + inspecting weather API data
+makeWeatherAPIRequest().then((myWeatherData) => {
+    console.log(myWeatherData) // weather data retrieved successfully 
+})
+
 
