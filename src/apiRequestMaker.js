@@ -14,10 +14,9 @@ async function apiRequestMaker (search = "tokyo") {
         //get forecast data
         const forecastDataResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=1852810708a34201a0c141512241103&q=${searchQuery}`, {mode: 'cors'})
         forecastData = await forecastDataResponse.json()
-    }
-    catch (error) {
+    } catch (error) {
         console.log('Oops -- error 1: ' + error)
-        return error
+        throw error
     }
         
 
