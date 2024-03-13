@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _apiRequestMaker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apiRequestMaker */ \"./src/apiRequestMaker.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\nconsole.log(\"index.js ready!\")\n\n\n//test: retrieving + inspecting weather API data\nasync function makeweatherAPIrequest() {\n    let myData \n    await (0,_apiRequestMaker__WEBPACK_IMPORTED_MODULE_0__[\"default\"])()\n    \n\n    console.log(myData)\n}\n\nmakeweatherAPIrequest()\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _apiRequestMaker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apiRequestMaker */ \"./src/apiRequestMaker.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\nconsole.log(\"index.js ready!\")\n\nasync function makeWeatherAPIRequest() {\n    let myData = await (0,_apiRequestMaker__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('london') //test a request to London\n    return myData\n}\n\n//test: retrieving + inspecting weather API data\nmakeWeatherAPIRequest().then((myWeatherData) => {\n    console.log(myWeatherData) // weather data retrieved successfully \n})\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
