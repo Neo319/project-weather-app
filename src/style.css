@@ -17,9 +17,10 @@ body {
     align-items: center;
 }
 
-#geoData, #currentData{
+#geoData, #currentData, #settings{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 

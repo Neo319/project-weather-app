@@ -43,7 +43,7 @@ export default function mainWindowDisplayer (myWeatherData) {
     conditionIcon.src = `https:${data.conditionIcon}`
     conditionText.textContent = data.condition
     localTime.textContent = `Local Time: ${(localTimeValue)}`
-    tempC.textContent = `${data.tempC} ℃`
+    tempC.textContent = `${data.currentTempC} ℃`
     
     
 
