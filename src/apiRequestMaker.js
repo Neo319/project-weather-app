@@ -4,15 +4,22 @@ async function apiRequestMaker (search = "tokyo") {
     let forecastData
     const searchQuery = search.toString()
 
+    console.log('making search')
+
 
     try {
         //get forecast  + current data
         const forecastDataResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=1852810708a34201a0c141512241103&q=${searchQuery}`, {mode: 'cors'})
+        if (!forecastDataResponse.ok) {
+            throw new Error ('WeatherAPI failed with status ' +forecastDataResponse.status)
+        }
         forecastData = await forecastDataResponse.json()
     } catch (error) {
         console.log('Oops -- error 1: ' + error)
         throw error
     }
+
+    console.log("extracting search")
 
     //extract the data that we need 
     const returnData = {
@@ -47,6 +54,8 @@ async function apiRequestMaker (search = "tokyo") {
             snowChance: forecastData.forecast.forecastday[0].day.daily_chance_of_snow,
         }
     }
+
+    console.log('search done')
     return {returnData}
 }
 
