@@ -33,11 +33,21 @@ export default function mainWindowDisplayer (myWeatherData) {
     currentData.id = 'currentData'
     const conditionIcon = new Image()
     const conditionText = document.createElement('span')
+    const localTime = document.createElement('span')
+    const tempC = document.createElement('span')
+
+    //format the date value
+    let localTimeValue = data.localTime
+    localTimeValue = localTimeValue.slice(localTimeValue.indexOf(' ') + 1)
 
     conditionIcon.src = `https:${data.conditionIcon}`
     conditionText.textContent = data.condition
+    localTime.textContent = `Local Time: ${(localTimeValue)}`
+    tempC.textContent = `${data.tempC} ℃`
+    
+    
 
-    currentData.append(...[conditionIcon, conditionText])
+    currentData.append(...[conditionIcon, conditionText, localTime, tempC])
     mainWindow.appendChild(currentData)
 
 }
