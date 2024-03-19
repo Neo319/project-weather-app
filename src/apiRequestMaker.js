@@ -4,7 +4,6 @@ async function apiRequestMaker (search = "tokyo") {
     let forecastData
     const searchQuery = search.toString()
 
-    console.log('making search')
 
 
     try {
@@ -19,7 +18,6 @@ async function apiRequestMaker (search = "tokyo") {
         throw error
     }
 
-    console.log("extracting search")
 
     //extract the data that we need 
     const returnData = {
@@ -55,7 +53,6 @@ async function apiRequestMaker (search = "tokyo") {
         }
     }
 
-    console.log('search done')
     return {returnData}
 }
 

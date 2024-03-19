@@ -11,6 +11,7 @@ body {
 #mainWindow {
     width: (100vw - 2px);
     min-height: 100px;
+    height: 60vh;
     border: 1px solid black;
     display: flex; 
     flex-direction: column;
@@ -22,5 +23,17 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
+/* mainWindow styles for weather conditions */
+.sunny {
+    background-color: rgb(115, 190, 254);
+}
+.partlyCloudyDay {
+    background-color: rgb(180, 180, 180);
+}
+.lightRainDay {
+    background-color: azure;
+}
+
 
 

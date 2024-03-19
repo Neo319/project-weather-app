@@ -8,8 +8,6 @@ export default function mainWindowDisplayer (myWeatherData) {
 
     const data = myWeatherData.returnData //making things shorter 
 
-    //test: can we display the name? 
-
     const geoData = document.createElement('div')
     geoData.id = 'geoData'
     mainWindow.appendChild(geoData)
@@ -44,6 +42,24 @@ export default function mainWindowDisplayer (myWeatherData) {
     conditionText.textContent = data.condition
     localTime.textContent = `Local Time: ${(localTimeValue)}`
     tempC.textContent = `${data.currentTempC} ℃`
+
+    //main Window styling, based on condition text
+    function setWeatherStyle () {
+        console.log('setting style')
+        const condition = data.condition
+        console.log(...[condition, data.isDay])
+        mainWindow.classList = ''
+        if (condition == 'Sunny') {
+            mainWindow.classList.add('sunny')
+        } 
+        else if (condition == "Partly cloudy" && data.isDay == 1) {
+            mainWindow.classList.add('partlyCloudyDay')
+        } 
+        else if (condition == "Light rain" && data.isDay == 1) {
+            mainWindow.classList.add('lightRainDay')
+        }
+    } 
+    setWeatherStyle()
     
     
 
