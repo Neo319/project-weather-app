@@ -50,8 +50,12 @@ async function apiRequestMaker (search = "tokyo") {
     
             rainChance: forecastData.forecast.forecastday[0].day.daily_chance_of_rain,
             snowChance: forecastData.forecast.forecastday[0].day.daily_chance_of_snow,
-        }
+        },
+
+        //extract data for the next four hours
+        
     }
+    
 
     return {returnData}
 }
