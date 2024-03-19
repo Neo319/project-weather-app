@@ -9,13 +9,16 @@ body {
 }
 
 #mainWindow {
-    width: (100vw - 2px);
+    width: calc(100vw - 2px);
     min-height: 100px;
     height: 60vh;
     border: 1px solid black;
     display: flex; 
     flex-direction: column;
     align-items: center;
+
+    overflow: hidden;
+    z-index: 0;
 }
 
 #geoData, #currentData, #settings{
@@ -35,5 +38,33 @@ body {
     background-color: azure;
 }
 
+/* Clouds scroll styling and animation */
+#scroller {
+    width: 300vw;
+    height: 100vh;
+    border: 1px solid red;
+    position: absolute;
+    
+    z-index: 1;
+    top: 0;
 
+    background: url('./images/clouds_2.png') repeat-x;
+    animation: scrollBackground 150s linear infinite;
+}
+
+@keyframes scrollBackground {
+    0% {
+        transform: translateX(-30%);
+    }
+    100% {
+        transform: translateX(30%);
+    }
+}
+
+
+
+/* ensure other data appears above scrolling clouds */
+#geoData, #currentData, header, #settings * {
+    z-index: 2;
+}
 

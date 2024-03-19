@@ -60,10 +60,16 @@ export default function mainWindowDisplayer (myWeatherData) {
         }
     } 
     setWeatherStyle()
+
+    //create scrolling clouds effect
+    const scroller = document.createElement('div')
+    scroller.id = "scroller"
     
     
 
     currentData.append(...[conditionIcon, conditionText, localTime, tempC])
     mainWindow.appendChild(currentData)
+    mainWindow.appendChild(scroller)
+
 
 }
