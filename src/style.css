@@ -8,17 +8,23 @@ body {
     margin: 0;
 }
 
+#settings {
+    background-color: white;
+    z-index: 100;
+}
+
+
 #mainWindow {
     width: calc(100vw - 2px);
     min-height: 100px;
     height: 60vh;
-    border: 1px solid black;
     display: flex; 
     flex-direction: column;
     align-items: center;
 
     overflow: hidden;
     z-index: 0;
+
 }
 
 #geoData, #currentData, #settings{
@@ -37,19 +43,28 @@ body {
 .lightRainDay {
     background-color: azure;
 }
+.night {
+    background-color: #242447;
+    color: white;
+}
+#scroller.night {
+    filter: opacity(0.5);
+}
+.other {
+    background-color: #709ee7;
+}
 
 /* Clouds scroll styling and animation */
 #scroller {
     width: 300vw;
     height: 100vh;
-    border: 1px solid red;
     position: absolute;
     
     z-index: 1;
     top: 0;
 
     background: url('./images/clouds_2.png') repeat-x;
-    animation: scrollBackground 150s linear infinite;
+    animation: scrollBackground 200s linear infinite;
 }
 
 @keyframes scrollBackground {

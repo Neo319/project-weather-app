@@ -43,29 +43,39 @@ export default function mainWindowDisplayer (myWeatherData) {
     localTime.textContent = `Local Time: ${(localTimeValue)}`
     tempC.textContent = `${data.currentTempC} ℃`
 
-    //main Window styling, based on condition text
-    function setWeatherStyle () {
-        console.log('setting style')
-        const condition = data.condition
-        console.log(...[condition, data.isDay])
-        mainWindow.classList = ''
-        if (condition == 'Sunny') {
-            mainWindow.classList.add('sunny')
-        } 
-        else if (condition == "Partly cloudy" && data.isDay == 1) {
-            mainWindow.classList.add('partlyCloudyDay')
-        } 
-        else if (condition == "Light rain" && data.isDay == 1) {
-            mainWindow.classList.add('lightRainDay')
-        }
-    } 
-    setWeatherStyle()
+    
 
     //create scrolling clouds effect
     const scroller = document.createElement('div')
     scroller.id = "scroller"
     
     
+    //main Window styling, based on condition text
+    function setWeatherStyle () {
+        console.log('setting style')
+        const condition = data.condition
+        console.log(...[condition, data.isDay])
+        mainWindow.classList = ''
+        scroller.classList = ''
+        if (condition == 'Sunny') {
+            mainWindow.classList.add('sunny')
+        }
+         else if (data.isDay === 0) {
+            mainWindow.classList.add('night')
+            scroller.classList.add('night')
+        }
+         else if (condition == "Partly cloudy" && data.isDay == 1) {
+            mainWindow.classList.add('partlyCloudyDay')
+        } 
+        else if (condition == "Light rain" && data.isDay == 1) {
+            mainWindow.classList.add('lightRainDay')
+        } 
+        else {
+            mainWindow.classList.add('other')
+        }
+        
+    } 
+    setWeatherStyle()
 
     currentData.append(...[conditionIcon, conditionText, localTime, tempC])
     mainWindow.appendChild(currentData)
